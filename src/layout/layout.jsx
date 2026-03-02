@@ -15,7 +15,7 @@ import {
   withSuspense,
   useIsNarrowScreen,
 } from '@generative.fm/web-ui';
-import { MusicNote, LibraryMusic, Favorite } from '@material-ui/icons';
+import { MusicNote, LibraryMusic } from '@material-ui/icons';
 import selectCurrentPieceId from '../queue/select-current-piece-id';
 import selectIsPlaybackOpen from '../playback/select-is-playback-open';
 import userOpenedPlayback from '../playback/user-opened-playback';
@@ -34,7 +34,6 @@ const Library = withSuspense(() => import('../library/library'));
 const LibraryGrid = withSuspense(() => import('../library/library-grid'));
 const Settings = withSuspense(() => import('../settings/settings'));
 const About = withSuspense(() => import('@generative.fm/web-ui/dist/about'));
-const Donate = withSuspense(() => import('@generative.fm/web-ui/dist/donate'));
 const ControlBar = withSuspense(() => import('../controls/control-bar'));
 const Playback = withSuspense(() => import('../playback/playback'));
 const PlaybackWithControls = withSuspense(() =>
@@ -51,11 +50,6 @@ const NAV_LINKS = [
     label: 'Library',
     to: '/library',
     Icon: LibraryMusic,
-  },
-  {
-    label: 'Donate',
-    to: '/donate',
-    Icon: Favorite,
   },
 ];
 
@@ -113,7 +107,6 @@ const Layout = () => {
                 sourceCodeUrl="https://github.com/generative-fm/play"
               />
             </Route>
-            <Route path="/donate" component={Donate} />
             <Redirect to="/browse" />
           </Switch>
         </div>
